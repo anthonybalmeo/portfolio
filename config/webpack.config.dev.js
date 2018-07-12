@@ -139,7 +139,10 @@ module.exports = {
             }
           },
           // TS LOADER
-          { test: /\.tsx?$/, loader: 'ts-loader' },
+          {
+            test: /\.(ts|tsx)$/,
+            loader: 'awesome-typescript-loader'
+          },
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
