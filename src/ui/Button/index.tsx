@@ -13,11 +13,3 @@ export class Button extends React.Component<Props> {
       return <button>This is a button {text}</button>
   }
 }
-
-// export const Button = ({ text }: Props): JSX.Element => {
-//   return (
-//     <button>
-//       {text}
-//     </button>
-//   )
-// }
