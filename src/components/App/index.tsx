@@ -1,21 +1,18 @@
 import * as React from 'react'
-import './index.scss'
-import { Button } from '../../ui/Button'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import * as Loadable from 'react-loadable'
 
-class App extends React.Component {
-  render () {
-    return ( 
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Button text='Poop'/>
-      </div>
-    )
-  }
-}
+const Loading = () => <div>Loading...</div>
 
-export default App
+const Home = Loadable({
+  loader: () => import('../Home'),
+  loading: Loading,
+})
+
+export const App = (): JSX.Element => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+    </Switch>
+  </Router>
+)
